@@ -26,4 +26,10 @@ public class TenisController {
     public List<Tenis> getTenisPorMarca(@PathVariable String marca){
         return tenisService.getTenisPorMarca(marca);
     }
+
+    @GetMapping ("/nome/{nome}")
+    public Tenis getTenisNome(@PathVariable String nome) {
+        return tenisService.getTenisPorNome(nome);
+
+    }
 }

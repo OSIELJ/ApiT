@@ -6,13 +6,23 @@ public class Tenis {
     private String descricao;
     private String marca;
     private String imagemUrl;
+    private String cor;
 
-    public Tenis(Long id, String nome, String descricao, String marca, String imagemUrl) {
+    public Tenis(Long id, String nome, String descricao, String marca, String imagemUrl, String cor) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.marca = marca;
         this.imagemUrl = imagemUrl;
+        this.cor = cor;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
     }
 
     public Long getId() {
