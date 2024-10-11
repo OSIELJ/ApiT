@@ -13,7 +13,7 @@ public class TenisService {
 
     private final List<Tenis> tenisList = Arrays.asList(
             // Nike
-            new Tenis(1L, "Air Max", "Confortável e estiloso", "Nike", "https://exemplo.com/airmax.jpg", "branca"),
+            new Tenis(1L, "Air Max", "Confortável e estiloso", "Nike", "https://imgnike-a.akamaihd.net/branding/cdp-airmax-2024/assets/img/carrossel-historia/airmax-1.png", "branca"),
             new Tenis(2L, "Air Zoom Pegasus", "Para corridas longas", "Nike", "https://exemplo.com/pegasus.jpg", "preta"),
             new Tenis(3L, "React Infinity", "Estabilidade e conforto", "Nike", "https://exemplo.com/infinity.jpg", "azul"),
             new Tenis(4L, "Air Force 1", "Ícone de estilo", "Nike", "https://exemplo.com/airforce.jpg", "branca"),
