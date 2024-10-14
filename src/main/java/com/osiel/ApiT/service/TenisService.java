@@ -14,15 +14,15 @@ public class TenisService {
     private final List<Tenis> tenisList = Arrays.asList(
             // Nike
             new Tenis(1L, "Air Max", "Confortável e estiloso", "Nike", "https://imgnike-a.akamaihd.net/branding/cdp-airmax-2024/assets/img/carrossel-historia/airmax-1.png", "branca"),
-            new Tenis(2L, "Air Zoom Pegasus", "Para corridas longas", "Nike", "https://exemplo.com/pegasus.jpg", "preta"),
-            new Tenis(3L, "React Infinity", "Estabilidade e conforto", "Nike", "https://exemplo.com/infinity.jpg", "azul"),
-            new Tenis(4L, "Air Force 1", "Ícone de estilo", "Nike", "https://exemplo.com/airforce.jpg", "branca"),
-            new Tenis(5L, "Cortez", "Design retrô", "Nike", "https://exemplo.com/cortez.jpg", "vermelha"),
-            new Tenis(6L, "Blazer", "Estilo clássico", "Nike", "https://exemplo.com/blazer.jpg", "preta"),
-            new Tenis(7L, "Joyride", "Amortecimento inovador", "Nike", "https://exemplo.com/joyride.jpg", "roxa"),
-            new Tenis(8L, "Metcon", "Para treinos intensos", "Nike", "https://exemplo.com/metcon.jpg", "cinza"),
-            new Tenis(9L, "ZoomX Vaporfly", "Alta performance", "Nike", "https://exemplo.com/vaporfly.jpg", "branca"),
-            new Tenis(10L, "SB Dunk", "Skateboarding", "Nike", "https://exemplo.com/sbdunk.jpg", "colorida"),
+            new Tenis(2L, "Air Zoom Pegasus", "Para corridas longas", "Nike", "https://imgcentauro-a.akamaihd.net/768x768/M0P70302A2.jpg", "preta"),
+            new Tenis(3L, "React Infinity", "Estabilidade e conforto", "Nike", "https://imgcentauro-a.akamaihd.net/768x768/98352966.jpg", "vermelho"),
+            new Tenis(4L, "Air Force 1", "Ícone de estilo", "Nike", "https://imgnike-a.akamaihd.net/1920x1920/02580551A10.jpg", "branca"),
+            new Tenis(5L, "Cortez", "Design retrô", "Nike", "https://imgnike-a.akamaihd.net/1920x1920/028379NXA1.jpg", "verde"),
+            new Tenis(6L, "Blazer", "Estilo clássico", "Nike", "https://imgnike-a.akamaihd.net/1920x1920/001975IFA8.jpg", "preta"),
+            new Tenis(7L, "Joyride", "Amortecimento inovador", "Nike", "https://imgnike-a.akamaihd.net/768x768/015993NEA9.jpg", "roxa"),
+            new Tenis(8L, "Metcon", "Para treinos intensos", "Nike", "https://imgnike-a.akamaihd.net/1920x1920/0270067TA10.jpg", "cinza"),
+            new Tenis(9L, "ZoomX Vaporfly", "Alta performance", "Nike", "https://imgnike-a.akamaihd.net/768x768/01016853A2.jpg", "branca"),
+            new Tenis(10L, "SB Dunk", "Skateboarding", "Nike", "https://imgnike-a.akamaihd.net/1920x1920/02632115A2.jpg", "azul"),
 
             // Adidas
             new Tenis(11L, "UltraBoost", "Ideal para corrida", "Adidas", "https://exemplo.com/ultraboost.jpg", "preta"),
