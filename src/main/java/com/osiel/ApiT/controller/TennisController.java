@@ -1,7 +1,7 @@
 package com.osiel.ApiT.controller;
 
-import com.osiel.ApiT.model.Tenis;
-import com.osiel.ApiT.service.TenisService;
+import com.osiel.ApiT.model.Tennis;
+import com.osiel.ApiT.service.TennisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,29 +12,29 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/tenis")
-public class TenisController {
+public class TennisController {
 
     @Autowired
-    private TenisService tenisService;
+    private TennisService tenisService;
 
     @GetMapping("/aleatorio")
-    public Tenis getTenisAleatorio(){
-        return tenisService.getTenisAleatorio();
+    public Tennis getTennisRandom(){
+        return tenisService.getTennisRandom();
     }
 
     @GetMapping("/marca/{marca}")
-    public List<Tenis> getTenisPorMarca(@PathVariable String marca){
-        return tenisService.getTenisPorMarca(marca);
+    public List<Tennis> getTennisForMark(@PathVariable String marca){
+        return tenisService.getTennisForMark(marca);
     }
 
     @GetMapping ("/nome/{nome}")
-    public Tenis getTenisNome(@PathVariable String nome) {
-        return tenisService.getTenisPorNome(nome);
+    public Tennis getTennisForName(@PathVariable String nome) {
+        return tenisService.getTennisForName(nome);
 
     }
 
     @GetMapping("/todos")
-    public  List<Tenis> getAllTenis(){
-        return tenisService.getAllTenis();
+    public  List<Tennis> getAllTennis(){
+        return tenisService.getAllTennis();
     }
 }
