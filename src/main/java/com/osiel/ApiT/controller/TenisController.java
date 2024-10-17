@@ -32,4 +32,9 @@ public class TenisController {
         return tenisService.getTenisPorNome(nome);
 
     }
+
+    @GetMapping("/todos")
+    public  List<Tenis> getAllTenis(){
+        return tenisService.getAllTenis();
+    }
 }

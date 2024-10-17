@@ -46,8 +46,9 @@ public class TenisService {
             new Tenis(27L, "Dynablast 3", "Leveza e velocidade", "Asics", "https://www.asics.com.br/arquivos/ids/417529-1000-1000/1012B289_404_SR_RT_GLB.jpg", "azul marinho"),
             new Tenis(28L, "Japan S", "Estiloso e elegante", "Asics", "https://www.asics.com.br/arquivos/ids/409626-1000-1000/Tenis-ASICS-Japan-S---Masculino---Preto.jpg", "preto"),
             new Tenis(29L, "Noosa tri 15", "Visual vibrante", "Asics", "https://www.asics.com.br/arquivos/ids/416734-1000-1000/1011B609_400_SR_RT_GLB.jpg", "colorida"),
-            new Tenis(30L, "Hyper Speed 3", "Para corridas rápidas", "Asics", "https://www.asics.com.br/arquivos/ids/421210-1000-1000/null.jpg", "vermelho"),
+            new Tenis(30L, "Hyper Speed 3", "Para corridas rápidas", "Asics", "https://www.asics.com.br/arquivos/ids/421210-1000-1000/null.jpg", "vermelho")
 
+            /*
             // Reebok
             new Tenis(31L, "Classic Leather", "Design clássico", "Reebok", "https://exemplo.com/classic.jpg", "branca"),
             new Tenis(32L, "Club C", "Minimalismo e conforto", "Reebok", "https://exemplo.com/clubc.jpg", "preta"),
@@ -71,6 +72,8 @@ public class TenisService {
             new Tenis(48L, "Carson", "Design leve", "Puma", "https://exemplo.com/carson.jpg", "verde"),
             new Tenis(49L, "Defy", "Estilo arrojado", "Puma", "https://exemplo.com/defy.jpg", "colorida"),
             new Tenis(50L, "Thunder Spectra", "Visual robusto", "Puma", "https://exemplo.com/thunder.jpg", "azul")
+
+             */
     );
 
 
@@ -94,5 +97,9 @@ public class TenisService {
                 .findFirst()
                 .orElse(null); // para caso não encontrar
 
-}
+    }
+
+    public List<Tenis> getAllTenis(){
+        return tenisList;
+    }
 }
