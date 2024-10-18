@@ -26,7 +26,7 @@ public class TennisService {
 
             // Adidas
             new Tennis(11L, "UltraBoost", "Ideal para corrida", "Adidas", "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/056473dbebec4b70b0271bb60fce8133_9366/Tenis_Ultraboost_5_Preto_ID8847_HM3_hover.jpg", "preta"),
-            new Tennis(12L, "NMD", "Estilo urbano", "Adidas", "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/9356564dbc9549299132ae200019ef9b_9366/Tenis_NMD_R1_Branco_GW5699_01_standard.jpg", "branco"),
+            new Tennis(12L, "NMD", "Estilo urbano", "Adidas", "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/9356564dbc9549299132ae200019ef9b_9366/Tenis_NMD_R1_Branco_GW5699_01_standard.jpg", "branca"),
             new Tennis(13L, "Stan Smith", "Design minimalista", "Adidas", "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/fb14b3f02f5946dea346a89a00e52cbb_9366/Tenis_Stan_Smith_Branco_CI9170_01_standard.jpg", "branca"),
             new Tennis(14L, "Superstar", "Clássico dos anos 70", "Adidas", "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/af405adab99747708f01aad8011626ff_9366/Tenis_Superstar_Preto_EG4957_01_standard.jpg", "preta"),
             new Tennis(15L, "ZX 2K Boost", "Amortecimento moderno", "Adidas", "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/f071cd7463af4bc8b5efad2500c3f3eb_9366/Tenis_ZX_2K_Boost_Verde_GZ7457_01_standard.jpg", "verde"),
@@ -101,5 +101,11 @@ public class TennisService {
 
     public List<Tennis> getAllTennis(){
         return tenisList;
+    }
+
+    public List<Tennis> getTennisForColor(String color){
+        return tenisList.stream()
+                .filter(tennis -> tennis.getColor().equalsIgnoreCase(color))
+                .collect(Collectors.toList());
     }
 }

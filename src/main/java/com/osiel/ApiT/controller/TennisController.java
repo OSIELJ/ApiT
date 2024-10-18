@@ -37,4 +37,9 @@ public class TennisController {
     public  List<Tennis> getAllTennis(){
         return tenisService.getAllTennis();
     }
+
+    @GetMapping("/cor/{cor}")
+    public List<Tennis> getTennisForColor(@PathVariable String cor){
+        return tenisService.getTennisForColor(cor);
+    }
 }
