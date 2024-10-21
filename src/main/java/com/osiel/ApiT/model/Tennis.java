@@ -1,18 +1,32 @@
 package com.osiel.ApiT.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Tennis {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;
-    private String mark;
+    private String brand;
     private String imageUrl;
     private String color;
+
+
+    public Tennis() {
+    }
+
 
     public Tennis(Long id, String name, String description, String mark, String imageUrl, String color) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.mark = mark;
+        this.brand = mark;
         this.imageUrl = imageUrl;
         this.color = color;
     }
@@ -49,12 +63,12 @@ public class Tennis {
         this.description = description;
     }
 
-    public String getMark() {
-        return mark;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setMark(String mark) {
-        this.mark = mark;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public String getImageUrl() {
