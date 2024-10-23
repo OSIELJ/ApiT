@@ -1,5 +1,6 @@
 package com.osiel.ApiT.service;
 
+import com.osiel.ApiT.dto.TennisDto;
 import com.osiel.ApiT.model.Tennis;
 import com.osiel.ApiT.repository.TennisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 @Service
 public class TennisService implements CommandLineRunner {
@@ -56,33 +58,6 @@ public class TennisService implements CommandLineRunner {
                 new Tennis(28L, "Japan S", "Estiloso e elegante", "Asics", "https://www.asics.com.br/arquivos/ids/409626-1000-1000/Tenis-ASICS-Japan-S---Masculino---Preto.jpg", "preto"),
                 new Tennis(29L, "Noosa tri 15", "Visual vibrante", "Asics", "https://www.asics.com.br/arquivos/ids/416734-1000-1000/1011B609_400_SR_RT_GLB.jpg", "colorida"),
                 new Tennis(30L, "Hyper Speed 3", "Para corridas rápidas", "Asics", "https://www.asics.com.br/arquivos/ids/421210-1000-1000/null.jpg", "vermelho")
-
-            /*
-            // Reebok
-            new Tenis(31L, "Classic Leather", "Design clássico", "Reebok", "https://exemplo.com/classic.jpg", "branca"),
-            new Tenis(32L, "Club C", "Minimalismo e conforto", "Reebok", "https://exemplo.com/clubc.jpg", "preta"),
-            new Tenis(33L, "Nano X", "Para crossfit e treinos", "Reebok", "https://exemplo.com/nanox.jpg", "azul"),
-            new Tenis(34L, "Zig Kinetica", "Design futurista", "Reebok", "https://exemplo.com/zigkinetica.jpg", "vermelha"),
-            new Tenis(35L, "Floatride", "Para longas distâncias", "Reebok", "https://exemplo.com/floatride.jpg", "preta"),
-            new Tenis(36L, "Instapump Fury", "Tecnologia pump", "Reebok", "https://exemplo.com/instapump.jpg", "colorida"),
-            new Tenis(37L, "Sole Fury", "Visual moderno", "Reebok", "https://exemplo.com/solefury.jpg", "branca"),
-            new Tenis(38L, "Legacy Lifter", "Para levantamento de peso", "Reebok", "https://exemplo.com/legacylifter.jpg", "preta"),
-            new Tenis(39L, "Reebok Royal", "Estilo casual", "Reebok", "https://exemplo.com/royal.jpg", "azul"),
-            new Tenis(40L, "Reebok Flexagon", "Para treinos de alta intensidade", "Reebok", "https://exemplo.com/flexagon.jpg", "vermelha"),
-
-            // Puma
-            new Tenis(41L, "RS-X", "Design ousado", "Puma", "https://exemplo.com/rsx.jpg", "colorida"),
-            new Tenis(42L, "Suede Classic", "Clássico de todos os tempos", "Puma", "https://exemplo.com/suedeclassic.jpg", "preta"),
-            new Tenis(43L, "Future Rider", "Visual retrô", "Puma", "https://exemplo.com/futurerider.jpg", "branca"),
-            new Tenis(44L, "Cali", "Estilo casual", "Puma", "https://exemplo.com/cali.jpg", "azul"),
-            new Tenis(45L, "Ignite", "Amortecimento energizado", "Puma", "https://exemplo.com/ignite.jpg", "vermelha"),
-            new Tenis(46L, "Hybrid", "Tecnologia híbrida de amortecimento", "Puma", "https://exemplo.com/hybrid.jpg", "preta"),
-            new Tenis(47L, "LQDCell", "Estabilidade e conforto", "Puma", "https://exemplo.com/lqdcell.jpg", "cinza"),
-            new Tenis(48L, "Carson", "Design leve", "Puma", "https://exemplo.com/carson.jpg", "verde"),
-            new Tenis(49L, "Defy", "Estilo arrojado", "Puma", "https://exemplo.com/defy.jpg", "colorida"),
-            new Tenis(50L, "Thunder Spectra", "Visual robusto", "Puma", "https://exemplo.com/thunder.jpg", "azul")
-
-             */
         );
         tennisRepository.saveAll(tenisList);
     }
@@ -93,31 +68,42 @@ public class TennisService implements CommandLineRunner {
 
     private final Random random = new Random();
 
-    public Tennis getTennisRandom() {
+    public TennisDto getTennisRandom() {
         List<Tennis> allTennis = tennisRepository.findAll();
         if (!allTennis.isEmpty()) {
             int index = random.nextInt(allTennis.size());
-            return allTennis.get(index);
+            Tennis randomTennis = allTennis.get(index);
+            return new TennisDto(randomTennis.getId(), randomTennis.getName(), randomTennis.getBrand(), randomTennis.getImageUrl());
         }
         return null;
     }
 
-    public List<Tennis> getTennisForMark(String marca) {
-        return tennisRepository.findByBrand(marca);
+    public List<TennisDto> getTennisForMark(String marca) {
+        List<Tennis> tennisList = tennisRepository.findByBrand(marca);
+        return tennisList.stream()
+                .map(tennis -> new TennisDto(tennis.getId(), tennis.getName(), tennis.getBrand(), tennis.getImageUrl()))
+                .collect(Collectors.toList());
     }
 
 
-    public Tennis getTennisForName(String nome) {
+    public TennisDto getTennisForName(String nome) {
         Optional<Tennis> tennis = tennisRepository.findByName(nome);
-        return tennis.orElse(null);
+        return tennis.map(t -> new TennisDto(t.getId(), t.getName(), t.getBrand(), t.getImageUrl())).orElse(null);
     }
 
-    public List<Tennis> getAllTennis() {
-        return tennisRepository.findAll();
+    public List<TennisDto> getAllTennis() {
+        List<Tennis> tennisList = tennisRepository.findAll();
+        return tennisList.stream()
+                .map(tennis -> new TennisDto(tennis.getId(), tennis.getName(), tennis.getBrand(), tennis.getImageUrl()))
+                .collect(Collectors.toList());
     }
 
-    public List<Tennis> getTennisForColor(String color) {
-        return tennisRepository.findByColor(color);
+    public List<TennisDto> getTennisForColor(String color) {
+        List<Tennis> tennisList = tennisRepository.findByColor(color);
+        return tennisList.stream()
+                .map(tennis -> new TennisDto(tennis.getId(), tennis.getName(), tennis.getBrand(), tennis.getImageUrl()))
+                .collect(Collectors.toList());
+
     }
 
 
